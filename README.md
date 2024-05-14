@@ -2,8 +2,8 @@
 Wrapper for the OpenAI file endpoints
 
 ## Usage
-The below returns the file ID for including in a OpenAI Assistant.
-`
+To upload a file specify the file path. it returns a File response object as defined in the [Microsoft Learn documentation](https://learn.microsoft.com/en-us/rest/api/azureopenai/files/upload?view=rest-azureopenai-2024-03-01-preview&tabs=HTTP#file) 
+```
 public async Task<string> FileUpload(string filePath)
 {
     string resVal = "";
@@ -18,9 +18,10 @@ public async Task<string> FileUpload(string filePath)
     if (!string.IsNullOrWhiteSpace(filePath) && System.IO.File.Exists(filePath)) { System.IO.File.Delete(filePath); }
     return resVal;
 }
-`
+```
+
 The below deletes a file.
-`
+```
 public async Task<object> FileDelete(string fileID)
 {
 	bool resVal = false;
@@ -29,4 +30,4 @@ public async Task<object> FileDelete(string fileID)
 	if (deleteResponse is bool) { resVal = true; }
 	return resVal;
 }
-`
+```
